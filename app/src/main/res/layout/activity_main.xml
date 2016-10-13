@@ -20,4 +20,9 @@
         android:text="获取壁纸"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/btn_reload"
+        android:text="重新载入"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 </LinearLayout>

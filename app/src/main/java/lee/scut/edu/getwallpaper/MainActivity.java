@@ -2,11 +2,13 @@ package lee.scut.edu.getwallpaper;
 
 import android.app.Activity;
 import android.app.WallpaperManager;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 public class MainActivity extends Activity {
@@ -27,7 +29,14 @@ public class MainActivity extends Activity {
         findViewById(R.id.btn_clear).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mRootView.setBackgroundColor(Color.WHITE);
+                mRootView.setBackgroundColor(Color.TRANSPARENT);
+            }
+        });
+        findViewById(R.id.btn_reload).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this,MainActivity.class));
+                finish();
             }
         });
     }
@@ -39,8 +48,7 @@ public class MainActivity extends Activity {
         // 获取当前壁纸
         Drawable wallpaperDrawable = wallpaperManager.getDrawable();
         // 将Drawable,转成Bitmap
-        Bitmap bm = ((BitmapDrawable) wallpaperDrawable).getBitmap();
-
-        mRootView.setBackgroundDrawable(new BitmapDrawable(bm));
+//        Bitmap bm = ((BitmapDrawable) wallpaperDrawable).getBitmap();
+        mRootView.setBackgroundDrawable(wallpaperDrawable);
     }
 }
